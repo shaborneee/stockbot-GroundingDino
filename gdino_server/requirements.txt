@@ -1,0 +1,14 @@
+fastapi
+uvicorn[standard]
+torch
+torchvision
+transformers
+addict
+yapf
+timm
+numpy
+opencv-python-headless
+supervision>=0.22.0
+pycocotools
+pillow
+requests
