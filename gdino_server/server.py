@@ -16,7 +16,7 @@ app = FastAPI()
 # -----------------------------
 # Django API Endpoint
 # -----------------------------
-DJANGO_API_URL = "https://stockbot-api-yu48.onrender.com/api/inventory/ingestion/classification/" 
+DJANGO_API_URL = os.getenv("DJANGO_WEBHOOK_URL")
 
 # Sending data to Django endpoint
 def send_to_django(payload):
@@ -126,7 +126,7 @@ async def detect_grocery(file: UploadFile = File(...)):
         "image_id": image_filename,
         "classification": top["object_name"]
     }
-    
+
     print(f"[DEBUG] Django payload: {django_payload}")
     django_response = send_to_django(django_payload)
     if django_response and (isinstance(django_response, dict) and django_response.get('status') == 'success' or django_response == 'success'):
