@@ -9,7 +9,6 @@ venv/
 
 # ML / Torch
 *.pt
-*.pth
 *.ckpt
 *.onnx
 
